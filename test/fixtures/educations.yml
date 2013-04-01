@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  address: 
+  phoneno: MyString
+  YOP: 2013-04-01
+  stream: MyString
+
+two:
+  name: MyString
+  address: 
+  phoneno: MyString
+  YOP: 2013-04-01
+  stream: MyString

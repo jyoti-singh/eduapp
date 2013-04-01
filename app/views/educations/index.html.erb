@@ -1,0 +1,39 @@
+<html>
+	<body>
+		<h4>Education form</h4>
+<script>
+function myFunction()
+{
+var x;
+var r=confirm("Is the above information is correct!");
+if (r==true)
+  {
+ document.getElementById('extra').value;
+  }
+else
+  {
+  window.location = '/';
+  }
+document.getElementById("demo").innerHTML=x;
+}
+</script>
+	
+<div id="demo">				
+<%=form_for :education,:url=>{:controller=>'educations',:action=>'create'} do |f|%>
+<p>Name: <%=f.text_field :name%></p>
+<p>Address: <%=f.text_area :address%></p>
+<p>Phoneno: <%=f.text_field :phoneno%></p>
+<p>Stream:  <%= f.select :stream, [['Science','science'],['Diploma','diploma']] %></p>
+<p>YOP:  <%= f.date_select :YOP, :order => [:day, :month, :year] %></p>
+<div id="extra">
+<p><%= f.hidden_field :marks_in_10th,:value=>"some value" %></p>
+<p><%= f.hidden_field :marks_in_12th,:value=>"some value"  %></p>
+</div>
+
+<%=f.submit "submit",:onclick=>"myFunction()"%>
+<%end%>
+
+
+</div
+</body>
+</html>
