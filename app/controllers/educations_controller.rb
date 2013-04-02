@@ -1,6 +1,6 @@
 class EducationsController < ApplicationController
   
- def index
+def index
 @education=Education.new
 end
 
@@ -9,8 +9,7 @@ def create
  @education.save
 end
 
-def view
-  
+def view  
 end
   
 end

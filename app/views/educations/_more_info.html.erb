@@ -1,11 +1,13 @@
-<div class="fields">
+<div class="eduform">
+<%=form_for :education,:url=>{:controller=>'educations',:action=>'create'} do |f|%>	
  <%= f.label       :marks_in_10th %><br />
- <%= f.text_field  :marls_in_10th%><br />
+ <%= f.text_field  :marks_in_10th%><br />
  
  
  <%= f.label      :marks_in_12th  %><br />
  <%= f.text_area  :marks_in_12th %><br />
  
 <%=f.submit "submit"%>
+<%end%>
 
  </div>

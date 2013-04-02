@@ -1,6 +1,29 @@
 <html>
 	<body>
-		<h4>Education form</h4>
+	<h4>Education form</h4>
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Work',     11],
+          ['Eat',      2],
+          ['Commute',  2],
+          ['Watch TV', 2],
+          ['Sleep',    7]
+        ]);
+
+        var options = {
+          title: 'My Daily Activities'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
 <script>
 function myFunction()
 {
@@ -8,7 +31,7 @@ var x;
 var r=confirm("Is the above information is correct!");
 if (r==true)
   {
- document.getElementById('extra').value;
+  $('.eduform').append("<%=j render 'more_info' %>");
   }
 else
   {
@@ -17,6 +40,7 @@ else
 document.getElementById("demo").innerHTML=x;
 }
 </script>
+<div id="chart_div" style="width: 900px; height: 500px; float: right; top :50px; margin-top:0px;"></div>
 	
 <div id="demo">				
 <%=form_for :education,:url=>{:controller=>'educations',:action=>'create'} do |f|%>
@@ -25,15 +49,10 @@ document.getElementById("demo").innerHTML=x;
 <p>Phoneno: <%=f.text_field :phoneno%></p>
 <p>Stream:  <%= f.select :stream, [['Science','science'],['Diploma','diploma']] %></p>
 <p>YOP:  <%= f.date_select :YOP, :order => [:day, :month, :year] %></p>
-<div id="extra">
-<p><%= f.hidden_field :marks_in_10th,:value=>"some value" %></p>
-<p><%= f.hidden_field :marks_in_12th,:value=>"some value"  %></p>
-</div>
 
 <%=f.submit "submit",:onclick=>"myFunction()"%>
 <%end%>
+</div>
 
-
-</div
 </body>
 </html>
